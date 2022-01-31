@@ -1,6 +1,6 @@
-import { Categegoria } from './../models/categoria.model';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Categoria } from './../models/categoria.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +10,39 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   getCategoria(){
-    return this.http.get<Categegoria[]>("categoria/All")
+    return this.http.get<Categoria[]>("categoria/All");
   }
 
   getCategoriaById(id: number){
-    return this.http.get<Categegoria>("categoria/id?id="+ id)
+    return this.http.get<Categoria>("categoria/id/"+ id);
   }
 
-  saveCategoria(categoria: Categegoria){
-    return this.http.post<Categegoria>("categoria/create",categoria)
+  saveCategoria(categoria: Categoria){
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.post<Categoria>("categoria/create",categoria, {headers});
   }
 
 
   deleteCategoria(id: number){
-    return this.http.delete("categoria/categoriaDel?id="+id)
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.delete("categoria/categoriaDel/"+id, {headers});
   }
 
-  updateCategoria(obj: Categegoria){
-    return this.http.put("categoria/categoriaUP", obj)
+  updateCategoria(obj: Categoria){
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.put("categoria/categoriaUP", obj, {headers});
   }
+
+  eventEmitterCategoria: EventEmitter<number> = new EventEmitter();
+
+  enviaCategoria(id: number){
+    this.eventEmitterCategoria.emit(id);
+  }
+
 }

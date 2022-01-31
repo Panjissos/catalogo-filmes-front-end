@@ -1,6 +1,6 @@
 const PROXY_CONFIG = [
   {
-    context: ['/filmes'],
+    context: ['/filmes','/idiomas','/categoria','/user','/auth'],
     target: 'http://localhost:8080/',
     secure: false,
     logLevel: 'debug'

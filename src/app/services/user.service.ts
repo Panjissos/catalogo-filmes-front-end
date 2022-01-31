@@ -1,5 +1,5 @@
 import { Usuario } from './../models/usuario.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,22 +10,35 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser(){
-    return this.http.get<Usuario[]>("user/All")
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.get<Usuario[]>("user/All", {headers});
   }
 
   getUserById(id: number){
-    return  this.http.get<Usuario>("user?id="+ id)
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders().append('Authorization', token);
+    return  this.http.get<Usuario>("user/"+ id,{headers});
   }
 
   updateUser(obj: Usuario){
-    return this.http.put("user/update", obj)
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.put("user/update", obj, {headers});
   }
 
   saveUser(obj: Usuario){
-    return this.http.post<Usuario>("user/create",obj)
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.post<Usuario>("user/create",obj, {headers});
   }
 
   deleteUser(id: number){
-    return this.http.delete("user/delete?id="+ id)
+    const token = localStorage.getItem('token') || '';
+
+    const headers = new HttpHeaders().append('Authorization', token);
+    return this.http.delete("user/delete/"+ id, {headers});
   }
 }

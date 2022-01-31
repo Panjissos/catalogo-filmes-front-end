@@ -1,0 +1,41 @@
+<form (ngSubmit)="crudUsuario()" [formGroup]="formulario">
+  <div class="col-md-12" >
+    <div class="col-md-12">
+      <label for="" class="form-label">Nome</label>
+      <input formControlName="nome" type="text" class="form-control" id="" required>
+    </div>
+    <div class="col-md-12 ">
+      <label for="" class="form-label">Cpf</label>
+      <input formControlName="cpf" type="text" class="form-control" id="" required>
+    </div>
+    <div class="col-md-12 ">
+      <label for="" class="form-label">Telefone</label>
+      <div class="input-group">
+        <input formControlName="telefone" type="text" class="form-control" id=""  aria-describedby="inputGroupPrepend2" required>
+      </div>
+    </div>
+    <div class="col-md-12 ">
+      <label for="" class="form-label">Email</label>
+      <input formControlName="email" type="email" class="form-control" id="" required>
+    </div>
+
+    <div class="col-md-12 ">
+      <label for="" class="form-label">Senha</label>
+      <input formControlName="senha" type="password" class="form-control" id="" required>
+    </div>
+
+    <div class="col-md-12 ">
+      <label for="idiomas" class="form-label" >Idiomas</label>
+      <select formControlName="idioma" class="form-control" id="idiomas" required>
+        <option [ngValue]="idioma" *ngFor="let idioma of idiomas " >
+          {{ idioma.nome }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-primary" type="submit">enviar</button>
+    </div>
+
+  </div>
+</form>

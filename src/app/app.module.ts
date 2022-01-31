@@ -10,6 +10,12 @@ import { CardListComponent } from './card-list/card-list.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CrudFilmeComponent } from './crud-filme/crud-filme.component';
+import { CrudFilmeTabelaComponent } from './crud-filme-tabela/crud-filme-tabela.component';
+import { CrudCategoriaComponent } from './crud-categoria/crud-categoria.component';
+import { UsuarioCrudComponent } from './usuario-crud/usuario-crud.component';
+import { CrudTabelaCategoriaComponent } from './crud-tabela-categoria/crud-tabela-categoria.component';
+import { CrudUsuarioTabelaComponent } from './crud-usuario-tabela/crud-usuario-tabela.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,13 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     CardComponent,
     CardListComponent,
-    LoginComponent
+    LoginComponent,
+    CrudFilmeComponent,
+    CrudFilmeTabelaComponent,
+    CrudCategoriaComponent,
+    UsuarioCrudComponent,
+    CrudTabelaCategoriaComponent,
+    CrudUsuarioTabelaComponent
   ],
   imports: [
     BrowserModule,

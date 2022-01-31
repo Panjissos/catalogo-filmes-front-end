@@ -1,8 +1,12 @@
+import { Categoria } from './categoria.model';
+import { Idioma } from './idioma.model';
 export interface Filme{
-  id?: number;
+  id?: any;
   titulo: string;
   sinopse: string;
   imagem: string;
-  dataDeLançamento: string;
+  dataDeLancamento: string;
   duracao: string;
+  idiomas: Idioma;
+  categoria: Categoria;
 }

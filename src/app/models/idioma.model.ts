@@ -1,5 +1,5 @@
 export interface Idioma{
-  id?: number;
+  id?: any;
   nome: string;
   tag: string;
 }

@@ -1,3 +1,4 @@
+import { Idioma } from './idioma.model';
 export interface Usuario{
   id?: number;
   nome: string;
@@ -5,4 +6,5 @@ export interface Usuario{
   telefone: string;
   email: string;
   senha: string;
+  idioma: Idioma;
 }

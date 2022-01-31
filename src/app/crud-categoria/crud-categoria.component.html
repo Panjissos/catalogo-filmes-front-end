@@ -1,0 +1,24 @@
+<form class="row g-3" (ngSubmit)="geraCategoria()" [formGroup]="formulario">
+    <div class="col-md-12">
+      <label for="" class="form-label">Nome</label>
+      <input formControlName="nome" type="text" class="form-control" id="" value="Mark" required>
+    </div>
+    <div class="col-md-6">
+      <label for="" class="form-label">Tag</label>
+      <input formControlName="tag" type="text" class="form-control" id="" value="Otto" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="" class="form-label" >Idiomas</label>
+      <select formControlName="idiomas" class="form-control" id="idioma" required>
+        <option >Selecione o idioma</option>
+        <option [ngValue]="idioma" *ngFor="let idioma of idiomas " >
+          {{ idioma.nome }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <button class="btn btn-primary" type="submit">enviar</button>
+    </div>
+  </form>
